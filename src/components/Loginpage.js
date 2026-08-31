@@ -1,34 +1,100 @@
 import React, { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import style from "../styles/login.module.css";
 import { formvalidation } from "../utils/loginvalidation";
+import { signupInProgress } from "../utils/firebase";
+
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+
+import { auth } from "../utils/firebase";
+import { addetails } from "../utils/userslice";
 
 function Loginpage() {
   const [logopt, setlogopt] = useState(true);
   const [message, setmessage] = useState("");
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
-  const handlesubmit = () => {
-    setlogopt(!logopt);
-    setmessage(""); // Clear previous error
-  };
+  const handleclick=()=>{
+    setlogopt(!logopt)
+  
+  }
+ 
 
   const validationsubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const value = formvalidation(
-      logopt ? "" : name.current.value,
+  const value = formvalidation(
+    logopt ? "" : name.current.value,
+    email.current.value,
+    password.current.value,
+    logopt
+  );
+
+  setmessage(value);
+
+  if (value !== null) return;
+
+  if (logopt) {
+    // Sign In
+    signInWithEmailAndPassword(
+      auth,
       email.current.value,
-      password.current.value,
-      logopt
-    );
+      password.current.value
+    )
+      .then((userCredential) => {
+        const user = userCredential.user;
+        navigate("/main");
+      })
+      .catch((error) => {
+        setmessage("Credentials are wrong");
+      });
+  } else {
+    // Sign Up
+    createUserWithEmailAndPassword(
+      auth,
+      email.current.value,
+      password.current.value
+    )
+      .then((userCredential) => {
+        const user = userCredential.user;
 
-    setmessage(value);
+        return updateProfile(user, {
+          displayName: name.current.value,
+          photoURL: "https://example.com/jane-q-user/profile.jpg",
+        });
+      })
+      .then(() => {
+        const { uid, displayName, email, photoURL } = auth.currentUser;
 
+        dispatch(
+          addetails({
+            uid,
+            displayName,
+            email,
+            photoURL,
+          })
+        );
+
+        navigate("/main");
+      })
+      .catch((error) => {
+        setmessage(error.message);
+      });
+  }
+};
     
-  };
+   
 
   return (
     <div className={style.maindiv}>
@@ -67,18 +133,15 @@ function Loginpage() {
             className={style.inputbox}
           />
 
-          {/* Error Message */}
           {message && (
-            <p className={style.errormessage}>
-              {message}
-            </p>
+            <p className={style.errormessage}>{message}</p>
           )}
 
           <button className={style.button}>
             {logopt ? "Sign In" : "Sign Up"}
           </button>
 
-          <h5 className={style.signup} onClick={handlesubmit}>
+          <h5 className={style.signup} onClick={handleclick}>
             {logopt
               ? "New to Netflix? Sign up now"
               : "Already Registered? Sign in to watch"}

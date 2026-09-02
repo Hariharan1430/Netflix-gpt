@@ -3,67 +3,66 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 75px;
+  height: 68px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: 0 50px;
+  box-sizing: border-box;
 
-  /* background: linear-gradient(
+  background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.2)
-  ); */
+    rgba(0, 0, 0, 0.6),
+    transparent
+  );
 
-  z-index: 100;
-  box-sizing: border-box;
+  z-index: 999;
 }
 
 .logo {
-  width: 160px;
-  height: auto;
+  width: 170px;
+  cursor: pointer;
   object-fit: contain;
 }
 
 .userSection {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
 }
 
 .userName {
-    color: wheat;
-  font-size: 18px;
+  color: white;
+  font-size: 16px;
   font-weight: 600;
-   border-radius: 5px;
-
-  background-color: #e50914;
+  padding: 8px 14px;
+  background-color: rgba(229, 9, 20, 0.9);
+  border-radius: 5px;
 }
 
 .userIcon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
   object-fit: cover;
 }
 
 .signOutBtn {
-  padding: 8px 16px;
-
+  padding: 9px 18px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
 
   background-color: #e50914;
   color: white;
 
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
 
   cursor: pointer;
-
-  transition: 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .signOutBtn:hover {

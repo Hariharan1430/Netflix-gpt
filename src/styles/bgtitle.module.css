@@ -1,0 +1,59 @@
+.titleContainer {
+  position: absolute;
+  top: 30%;
+  left: 60px;
+  width: 40%;
+  color: white;
+  z-index: 10;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.overview {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  width: 90%;
+  color: #e5e5e5;
+  margin-bottom: 30px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 15px;
+}
+
+.playButton {
+  background: white;
+  color: black;
+  border: none;
+  padding: 12px 35px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.playButton:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.infoButton {
+  background: rgba(109, 109, 110, 0.7);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.infoButton:hover {
+  background: rgba(109, 109, 110, 0.5);
+}

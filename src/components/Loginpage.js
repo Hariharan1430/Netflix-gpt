@@ -3,8 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import style from "../styles/login.module.css";
 import { formvalidation } from "../utils/loginvalidation";
-import { signupInProgress } from "../utils/firebase";
-
+import { LOGO } from "../utils/constants";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -19,7 +18,6 @@ function Loginpage() {
   const [message, setmessage] = useState("");
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const name = useRef(null);
   const email = useRef(null);
@@ -54,7 +52,7 @@ function Loginpage() {
     )
       .then((userCredential) => {
         const user = userCredential.user;
-        navigate("/main");
+        // navigate("/main");
       })
       .catch((error) => {
         setmessage("Credentials are wrong");
@@ -86,7 +84,7 @@ function Loginpage() {
           })
         );
 
-        navigate("/main");
+        // navigate("/main");
       })
       .catch((error) => {
         setmessage(error.message);
@@ -101,8 +99,7 @@ function Loginpage() {
       <div className={style.logoContainer}>
         <img
           className={style.logo}
-          src="https://occ.a.nflxso.net/dnmt/api/v6/iL4oJVDYZ8KLSrJ6eG2OwtghbfQ/AAAAAfwxusEeCteu-L_QQ56_G2cohyI1E4BIh2uyr5t9gDhH0CKWHw3NVhndjuF7yQ26z3cYq_lnzY5pP6OarHyiibuiy2jIIa5sIhSvgal1S6u9YDVAyVoX6osPniEKN-dYy77H_pLfOCD7.svg"
-          alt="Netflix Logo"
+          src={LOGO}
         />
       </div>
 

@@ -12,12 +12,13 @@
   padding: 0 50px;
   box-sizing: border-box;
 
-  background: linear-gradient(
+  /* background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.9),
     rgba(0, 0, 0, 0.6),
     transparent
-  );
+  ); */
+  background-color: whitesmoke;
 
   z-index: 999;
 }

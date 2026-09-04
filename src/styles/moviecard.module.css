@@ -1,0 +1,13 @@
+.movieCard {
+  min-width: 180px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+
+.moviePoster {
+  width: 180px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 6px;
+}

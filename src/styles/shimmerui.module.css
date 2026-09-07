@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.title {
+  width: 220px;
+  height: 30px;
+  border-radius: 6px;
+  background: #333;
+  margin-bottom: 20px;
+  animation: shimmer 1.3s infinite;
+}
+
+.movies {
+  display: flex;
+  gap: 12px;
+  overflow-x: hidden;
+}
+
+.card {
+  min-width: 180px;
+  height: 270px;
+  border-radius: 8px;
+  background: #333;
+  animation: shimmer 1.3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.45;
+  }
+}

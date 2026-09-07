@@ -23,7 +23,7 @@ const Header = () => {
       .catch((error) => {});
       dispatch(searchvalue())
   };
-
+ 
   const handleclick = () => {
     dispatch(gptsearch());
   };

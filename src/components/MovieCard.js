@@ -4,6 +4,7 @@ import styles from "../styles/moviecard.module.css";
 
 
 const MovieCard = ({ moviecardurl }) => {
+  if(!moviecardurl) return null;
   return (
     <div className={styles.movieCard}>
       <img

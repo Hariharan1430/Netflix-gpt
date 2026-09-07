@@ -10,3 +10,5 @@ export const MOVIE_DATA= {
 
 
 export const CDN_URL="https://image.tmdb.org/t/p/w500"
+
+export const OPEN_AI_KEY="@@@@"

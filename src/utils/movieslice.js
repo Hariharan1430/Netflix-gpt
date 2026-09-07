@@ -8,7 +8,7 @@ const movieslice=createSlice({
         newtrailer:null,
         upcomming:null,
         toprated:null,
-        popularmovies:null
+        popularmovies:null,
     },
     reducers:{
         addnewmovies:(state,actions)=>{
@@ -25,7 +25,8 @@ const movieslice=createSlice({
         },
         addPopularmovielist:(state,actions)=>{
             state.popularmovies=actions.payload
-        }
+        },
+       
 
     }
 })

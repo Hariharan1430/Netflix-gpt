@@ -21,4 +21,4 @@ const Movielist = ({ title, moviecardata }) => {
   );
 };
 
-export default Movielist;
+export default Movielist; 

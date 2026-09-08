@@ -7,6 +7,7 @@ import useTopRated from "../hooks/useTopRated";
 import usePopularlist from "../hooks/usePopularlist";
 import GptSearch from "./GptSearch";
 import { useSelector } from "react-redux";
+import useMovieTrailer from "../hooks/useMovieTrailer";
 
 const Mainpage = () => {
   const gptsearchvalue = useSelector((store) => store.gptsearch.search);
@@ -14,6 +15,7 @@ const Mainpage = () => {
   useUpcomming();
   useTopRated();
   usePopularlist();
+  useMovieTrailer();
 
   return (
     <>

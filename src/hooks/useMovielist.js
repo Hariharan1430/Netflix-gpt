@@ -1,11 +1,13 @@
 import { MOVIE_DATA } from '../utils/constants'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addnewmovies } from '../utils/movieslice'
 import { useEffect } from 'react'
 
 const useMovielist=()=>{
     
       const dispatch=useDispatch();
+      const video=useSelector((store)=>store.movies.newmovies)
+     
 
  
   const getnowmoviedata=async ()=>{
@@ -19,7 +21,7 @@ const useMovielist=()=>{
   }
  
   useEffect(()=>{
-       getnowmoviedata()
+     (!video) &&  getnowmoviedata()
   },[])
 }
 
